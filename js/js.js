@@ -552,7 +552,6 @@ function makeSlider(a) {
                 h += (c.showDetail) ? '<div class="detail-wrapper"><h4><a title="' + q + '" href="' + p + '"' + (c.newTabLink ? ' target="_blank"' : "") + ">" + ((c.titleLength == "auto") ? q : q.substring(0, c.titleLength) + (q.length > c.titleLength ? "&hellip;" : "")) + "</a></h4><p>" + o + "</p></div>" : "";
                 h += "</div>";
                 $("#" + c.containerId).css({
-                    width: (c.showThumb) ? c.thumbWidth + "%" : $("#" + c.containerId).css("width"),
                     height: (!c.showDetail && c.squareThumb) ? c.thumbWidth + "px" : $("#" + c.containerId).css("height")
                 })
             }
