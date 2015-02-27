@@ -508,7 +508,7 @@ function makeSlider(a) {
         summaryLength: 0,
         titleLength: "auto",
         showThumb: true,
-        thumbWidth: 250,
+        thumbWidth: 600,
         squareThumb: true,
         noThumb: "http://3.bp.blogspot.com/-vpCFysMEZys/UOEhSGjkfnI/AAAAAAAAFwY/h1wuA5kfEhg/s72-c/grey.png",
         showNav: true,
