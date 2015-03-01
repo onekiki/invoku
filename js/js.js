@@ -5,7 +5,7 @@ window.recentposts=(function(){var a=function(p){var d=p||{},i=d.url_blog||"",n=
 //zooming text
 var min=10; var max=20; function increaseFontSize() {   var p = document.getElementsByClassName('post'); for(i=0;i<p.length;i++) {   if(p[i].style.fontSize) { var s = parseInt(p[i].style.fontSize.replace("px","")); } else {   var s = 17; } if(s!=max) {   s += 1; } p[i].style.fontSize = s+"px"   } } function decreaseFontSize() { var p = document.getElementsByClassName('post'); for(i=0;i<p.length;i++) {   if(p[i].style.fontSize) { var s = parseInt(p[i].style.fontSize.replace("px","")); } else {   var s = 17; } if(s!=min) {   s -= 1; } p[i].style.fontSize = s+"px"   } }
 
-//fixed nav
+/* fixed nav
 function divFloater(div){
     var win = $(window);
     var divTop = div.offset().top;
@@ -29,3 +29,4 @@ $(document).ready(function(){
     var floating_div=$('#body-templates').children('.main-top-nav');
     divFloater(floating_div);
 });
+*/
