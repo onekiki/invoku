@@ -119,6 +119,6 @@ function divFloater(div){
 };
 
 $(document).ready(function(){
-    var floating_div=$('#mainhead').children('.main-top-nav');
+    var floating_div=$('#body-templates').children('.main-top-nav');
     divFloater(floating_div);
 });
