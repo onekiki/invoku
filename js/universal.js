@@ -1,3 +1,96 @@
 //top header
 //recenpost
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1x 1y(F){j.l(\'<T x="1z">\');1a(e i=0;i<1d;i++){e f=F.17.f[i];e X=f.1b.$t;e y;h(i==F.17.f.G)N;1a(e k=0;k<f.r.G;k++){h(f.r[k].14=="1w"&&f.r[k].1v=="1s/1t"){e p=f.r[k].1b;e 18=f.r[k].q}h(f.r[k].14=="1u"){y=f.r[k].q;N}}e w;1A{w=f.1B$1H.19}1I(1r){s=f.I.$t;a=s.E("<K");b=s.E(\'R="\',a);c=s.E(\'"\',b+5);d=s.1F(b+5,c-b-5);h(a!=-1&&b!=-1&&c!=-1&&d!="")w=d;D w="Q://2.1C.1D.Y/1E/1K/1k/1q/1n.1o"}e C=f.1m.$t;e 13=C.z(0,4);e P=C.z(5,7);e O=C.z(8,10);e m=1j 1l;m[1]="1p";m[2]="1h";m[3]="1e";m[4]="1g";m[5]="1f";m[6]="1J";m[7]="26";m[8]="23";m[9]="2d";m[10]="1L";m[11]="2c";m[12]="20";j.l(\'<1c x="21">\');h(1R==v)j.l(\'<a q="\'+y+\'" A ="B"><K x="1P" R="\'+w+\'"/></a>\');j.l(\'<W><a q="\'+y+\'" A ="B">\'+X+"</a></W><M>");h("I"U f)e n=f.I.$t;D h("V"U f)e n=f.V.$t;D e n="";e Z=/<\\S[^>]*>/g;n=n.1S(Z,"");h(1Y==v)h(n.G<L){j.l("");j.l(n);j.l("")}D{j.l("");n=n.z(0,L);e J=n.1X(" ");n=n.z(0,J);j.l(n+"...");j.l("")}e o="";e u=0;j.l("<M>");h(1Q==v){o=o+m[1T(P,10)]+"-"+O+" - "+13;u=1}h(1N==v){h(u==1)o=o+" | ";h(p=="1 H")p="1 1M";h(p=="0 H")p="2b H";p=\'<a 16="29" q="\'+18+\'" A ="B">\'+p+"</a>";o=o+p;u=1}h(28==v){h(u==1)o=o+" | ";o=o+\'<a 16="27" q="\'+y+\'" x="19" A ="B">25 2a \\24</a>\';u=1}j.l(o);j.l("</1c>");h(22==v)h(i!=1d-1)j.l("")}j.l(\'<15 x="1V">1U 1W: <a q="Q://1Z.1O.Y">1i 1G</a></15></T>\')};',62,138,'||||||||||||||var|entry||if||document||write|monthnames|postcontent|towrite|commenttext|href|link|||flag|true|thumburl|class|posturl|substring|target|_top|postdate|else|indexOf|json|length|Comments|content|quoteEnd|img|numchars|br|break|cdday|cdmonth|http|src||ul|in|summary|strong|posttitle|com|re||||cdyear|rel|div|id|feed|commenturl|url|for|title|li|numposts|Mar|May|Apr|Feb|Making|new|AAAAAAAAAHA|Array|published|noimage|jpg|Jan|hAKuT9rJpFU|error|text|html|alternate|type|replies|function|labelthumbs|label_with_thumbs|try|media|bp|blogspot|_IKigl6y9hFA|substr|Different|thumbnail|catch|Jun|TMdcT1jzo5I|Oct|Comment|showcommentnum|makingdifferent|label_thumb|showpostdate|showpostthumbnails|replace|parseInt|Widget|credits|by|lastIndexOf|showpostsummary|www|Dec|clearfix|displayseparator|Aug|u00bb|Read|Jul|mdjumplink|displaymore|mdcomments|More|No|Nov|Sep'.split('|'),0,{}))
+function labelthumbs(json) {
+    document.write('<ul class="label_with_thumbs">');
+    for (var i = 0; i < numposts; i++) {
+        var entry = json.feed.entry[i];
+        var posttitle = entry.title.$t;
+        var posturl;
+        if (i == json.feed.entry.length) break;
+        for (var k = 0; k < entry.link.length; k++) {
+            if (entry.link[k].rel == "replies" && entry.link[k].type == "text/html") {
+                var commenttext = entry.link[k].title;
+                var commenturl = entry.link[k].href
+            }
+            if (entry.link[k].rel == "alternate") {
+                posturl = entry.link[k].href;
+                break
+            }
+        }
+        var thumburl;
+        try {
+            thumburl = entry.media$thumbnail.url
+        } catch (error) {
+            s = entry.content.$t;
+            a = s.indexOf("<img");
+            b = s.indexOf('src="', a);
+            c = s.indexOf('"', b + 5);
+            d = s.substr(b + 5, c - b - 5);
+            if (a != -1 && b != -1 && c != -1 && d != "") thumburl = d;
+            else thumburl = "http://2.bp.blogspot.com/_IKigl6y9hFA/TMdcT1jzo5I/AAAAAAAAAHA/hAKuT9rJpFU/noimage.jpg"
+        }
+        var postdate = entry.published.$t;
+        var cdyear = postdate.substring(0, 4);
+        var cdmonth = postdate.substring(5, 7);
+        var cdday = postdate.substring(8, 10);
+        var monthnames = new Array;
+        monthnames[1] = "Jan";
+        monthnames[2] = "Feb";
+        monthnames[3] = "Mar";
+        monthnames[4] = "Apr";
+        monthnames[5] = "May";
+        monthnames[6] = "Jun";
+        monthnames[7] = "Jul";
+        monthnames[8] = "Aug";
+        monthnames[9] = "Sep";
+        monthnames[10] = "Oct";
+        monthnames[11] = "Nov";
+        monthnames[12] = "Dec";
+        document.write('<li class="clearfix">');
+        if (showpostthumbnails == true) document.write('<img class="label_thumb" src="' + thumburl + '"/><a href="' + posturl + '" target ="_top"></a>');
+        document.write('<strong><a href="' + posturl + '" target ="_top">' + posttitle + "</a></strong><br>");
+        if ("content" in entry) var postcontent = entry.content.$t;
+        else if ("summary" in entry) var postcontent = entry.summary.$t;
+        else var postcontent = "";
+        var re = /<\S[^>]*>/g;
+        postcontent = postcontent.replace(re, "");
+        if (showpostsummary == true)
+            if (postcontent.length < numchars) {
+                document.write("");
+                document.write(postcontent);
+                document.write("")
+            } else {
+                document.write("");
+                postcontent = postcontent.substring(0, numchars);
+                var quoteEnd = postcontent.lastIndexOf(" ");
+                postcontent = postcontent.substring(0, quoteEnd);
+                document.write(postcontent + "...");
+                document.write("")
+            }
+        var towrite = "";
+        var flag = 0;
+        document.write("<br>");
+        if (showpostdate == true) {
+            towrite = towrite + monthnames[parseInt(cdmonth, 10)] + "-" + cdday + " - " + cdyear;
+            flag = 1
+        }
+        if (showcommentnum == true) {
+            if (flag == 1) towrite = towrite + " | ";
+            if (commenttext == "1 Comments") commenttext = "1 Comment";
+            if (commenttext == "0 Comments") commenttext = "No Comments";
+            commenttext = '<a id="mdcomments" href="' + commenturl + '" target ="_top">' + commenttext + "</a>";
+            towrite = towrite + commenttext;
+            flag = 1
+        }
+        if (displaymore == true) {
+            if (flag == 1) towrite = towrite + " | ";
+            towrite = towrite + '<a id="mdjumplink" href="' + posturl + '" class="url" target ="_top">Read More \u00bb</a>';
+            flag = 1
+        }
+        document.write(towrite);
+        document.write("</li>");
+        if (displayseparator == true)
+            if (i != numposts - 1) document.write("")
+    }
+    document.write('</ul>')
+};
