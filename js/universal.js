@@ -55,7 +55,7 @@ function labelthumbs(json) {
             towrite = towrite + monthnames[parseInt(cdmonth, 10)] + "-" + cdday + " - " + cdyear;
             flag = 1
         }
-        document.write('<div class="recent-title"');
+        document.write('<div class="recent-title">');
         document.write(towrite);
         document.write('<a href="' + posturl + '" target ="_top">' + posttitle + "</a></div>");
         if ("content" in entry) var postcontent = entry.content.$t;
