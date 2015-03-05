@@ -51,13 +51,13 @@ function labelthumbs(json) {
         document.write('<img class="label_thumb" src="' + thumburl + '"/>');
         var towrite = "";
         var flag = 0;
-        document.write("<br>");
         if (showpostdate == true) {
             towrite = towrite + monthnames[parseInt(cdmonth, 10)] + "-" + cdday + " - " + cdyear;
             flag = 1
         }
+        document.write('<div class="recent-title"');
         document.write(towrite);
-        document.write('<a href="' + posturl + '" target ="_top">' + posttitle + "</a>");
+        document.write('<a href="' + posturl + '" target ="_top">' + posttitle + "</a></div>");
         if ("content" in entry) var postcontent = entry.content.$t;
         else if ("summary" in entry) var postcontent = entry.summary.$t;
         else var postcontent = "";
