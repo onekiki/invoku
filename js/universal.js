@@ -47,8 +47,17 @@ function labelthumbs(json) {
         monthnames[11] = "Nov";
         monthnames[12] = "Dec";
         document.write('<li class="clearfix">');
-        if (showpostthumbnails == true) document.write('<img class="label_thumb" src="' + thumburl + '"/><a href="' + posturl + '" target ="_top"></a>');
-        document.write('<strong><a href="' + posturl + '" target ="_top">' + posttitle + "</a></strong><br>");
+        if (showpostthumbnails == true) 
+        document.write('<img class="label_thumb" src="' + thumburl + '"/>');
+        var towrite = "";
+        var flag = 0;
+        document.write("<br>");
+        if (showpostdate == true) {
+            towrite = towrite + monthnames[parseInt(cdmonth, 10)] + "-" + cdday + " - " + cdyear;
+            flag = 1
+        }
+        document.write(towrite);
+        document.write('<a href="' + posturl + '" target ="_top">' + posttitle + "</a>");
         if ("content" in entry) var postcontent = entry.content.$t;
         else if ("summary" in entry) var postcontent = entry.summary.$t;
         else var postcontent = "";
@@ -67,27 +76,7 @@ function labelthumbs(json) {
                 document.write(postcontent + "...");
                 document.write("")
             }
-        var towrite = "";
-        var flag = 0;
-        document.write("<br>");
-        if (showpostdate == true) {
-            towrite = towrite + monthnames[parseInt(cdmonth, 10)] + "-" + cdday + " - " + cdyear;
-            flag = 1
-        }
-        if (showcommentnum == true) {
-            if (flag == 1) towrite = towrite + " | ";
-            if (commenttext == "1 Comments") commenttext = "1 Comment";
-            if (commenttext == "0 Comments") commenttext = "No Comments";
-            commenttext = '<a id="mdcomments" href="' + commenturl + '" target ="_top">' + commenttext + "</a>";
-            towrite = towrite + commenttext;
-            flag = 1
-        }
-        if (displaymore == true) {
-            if (flag == 1) towrite = towrite + " | ";
-            towrite = towrite + '<a id="mdjumplink" href="' + posturl + '" class="url" target ="_top">Read More \u00bb</a>';
-            flag = 1
-        }
-        document.write(towrite);
+        
         document.write("</li>");
         if (displayseparator == true)
             if (i != numposts - 1) document.write("")
